@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Find a Gift - Gift Genie</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <h2>🎁 Gift Genie</h2>
+
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/finder">Find a Gift</a></li>
+                <li><a href="/#about">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="finder">
+
+        <h1>Let's Find the Perfect Gift! 💝</h1>
+
+        <p>Tell us a little about your special person.</p>
+
+        <form action="/result" method="GET">
+
+            <label>Who are you buying a gift for?</label>
+            <select name="relation" required>
+                <option value="">Select Relation</option>
+                <option>Friend</option>
+                <option>Mother</option>
+                <option>Father</option>
+                <option>Brother</option>
+                <option>Sister</option>
+                <option>Partner</option>
+                <option>Other</option>
+            </select>
+
+            <label>Age of the person</label>
+            <input type="number" name="age" placeholder="Enter age" min="1" required>
+
+            <label>What's the occasion?</label>
+            <select name="occasion" required>
+                <option value="">Select Occasion</option>
+                <option>Birthday</option>
+                <option>Anniversary</option>
+                <option>Wedding</option>
+                <option>Festival</option>
+                <option>Friendship</option>
+                <option>Just Because</option>
+            </select>
+
+            <label>What's your budget?</label>
+            <select name="budget" required>
+                <option value="">Select Budget</option>
+                <option>Below ₹500</option>
+                <option>₹500 - ₹1000</option>
+                <option>₹1000 - ₹2000</option>
+                <option>₹2000 - ₹5000</option>
+                <option>Above ₹5000</option>
+            </select>
+
+            <label>What are their interests?</label>
+            <select name="interest" required>
+                <option value="">Select Interest</option>
+                <option>Fashion</option>
+                <option>Technology</option>
+                <option>Books</option>
+                <option>Beauty</option>
+                <option>Sports</option>
+                <option>Art and Craft</option>
+                <option>Music</option>
+                <option>Travel</option>
+            </select>
+
+            <button type="submit" class="btn">
+                Find My Perfect Gift 🎁
+            </button>
+
+        </form>
+
+    </section>
+
+    <footer>
+        <p>Made with ❤️ by Anshu & Rashi</p>
+        <p>Gift Genie © 2026</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,664 @@
+/* =================================
+   GIFT GENIE - PREMIUM DESIGN
+================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #fffaff;
+    color: #454052;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/* =================================
+   NAVIGATION BAR
+================================= */
+
+.main-header {
+    background: rgba(255,255,255,0.95);
+    padding: 18px 7%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 3px 20px rgba(170,120,180,0.10);
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 27px;
+    font-weight: 800;
+    color: #bd6ba7;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 32px;
+}
+
+.nav-links a {
+    color: #66556d;
+    font-size: 14px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #d66ca9;
+}
+
+.nav-button {
+    background: linear-gradient(135deg,#e99acb,#a99be9);
+    color: white;
+    padding: 11px 22px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.nav-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(190,120,190,0.3);
+}
+
+
+/* =================================
+   HERO SECTION
+================================= */
+
+.hero {
+    min-height: 570px;
+    padding: 80px 9%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+
+    background: linear-gradient(
+        120deg,
+        #fff0f8,
+        #f5efff,
+        #fff7fb
+    );
+}
+
+.hero-content {
+    max-width: 620px;
+    animation: slideUp 1s ease;
+}
+
+.hero-label {
+    display: inline-block;
+    color: #bd69a5;
+    background: white;
+    padding: 9px 18px;
+    border-radius: 30px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 23px;
+}
+
+.hero h1 {
+    font-size: 49px;
+    line-height: 1.3;
+    color: #493d59;
+    font-weight: 800;
+    margin-bottom: 22px;
+}
+
+.hero h1 span {
+    display: block;
+    color: #d77bb5;
+}
+
+.hero-content > p {
+    color: #777080;
+    font-size: 15px;
+    line-height: 1.9;
+    margin-bottom: 30px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-block;
+    background: linear-gradient(135deg,#e78fbe,#b09bea);
+    color: white;
+    padding: 15px 27px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.3s;
+    box-shadow: 0 7px 20px rgba(210,130,190,0.25);
+}
+
+.btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(210,130,190,0.4);
+}
+
+.secondary-btn {
+    padding: 14px 25px;
+    border: 2px solid #dca4ce;
+    color: #b56b9f;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.secondary-btn:hover {
+    background: white;
+    transform: translateY(-3px);
+}
+
+.hero-note {
+    margin-top: 25px;
+    font-size: 12px;
+    color: #9c819f;
+}
+
+
+/* =================================
+   HERO IMAGE CARD
+================================= */
+
+.hero-visual {
+    position: relative;
+    animation: float 4s ease-in-out infinite;
+}
+
+.hero-image-card {
+    width: 320px;
+    height: 350px;
+    border-radius: 35px;
+    background: linear-gradient(145deg,#f5d9f0,#e5ddff);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 20px 50px rgba(160,120,190,0.2);
+    text-align: center;
+}
+
+.big-gift {
+    font-size: 120px;
+    margin-bottom: 12px;
+}
+
+.hero-image-card h3 {
+    color: #815d91;
+    font-size: 21px;
+}
+
+.hero-image-card p {
+    color: #947a9b;
+    margin-top: 10px;
+    font-size: 13px;
+}
+
+.floating-heart {
+    position: absolute;
+    top: 25px;
+    right: 30px;
+    font-size: 35px;
+}
+
+.floating-star {
+    position: absolute;
+    bottom: 15px;
+    left: -30px;
+    font-size: 45px;
+}
+
+
+/* =================================
+   FEATURES SECTION
+================================= */
+
+.features {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding: 70px 8%;
+    flex-wrap: wrap;
+    background: white;
+}
+
+.feature-card {
+    background: #fff8fd;
+    padding: 30px 22px;
+    border-radius: 22px;
+    text-align: center;
+    width: 280px;
+    border: 1px solid #f6e4f2;
+    transition: 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-9px);
+    box-shadow: 0 12px 30px rgba(190,130,190,0.15);
+}
+
+.feature-card div {
+    font-size: 38px;
+    margin-bottom: 14px;
+}
+
+.feature-card h3 {
+    color: #a965a0;
+    font-size: 17px;
+    margin-bottom: 10px;
+}
+
+.feature-card p {
+    font-size: 12px;
+    color: #817889;
+    line-height: 1.7;
+}
+
+
+/* =================================
+   POPULAR GIFTS
+================================= */
+
+.popular {
+    padding: 80px 8%;
+    background: #fff7fc;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.section-heading span {
+    color: #ce83b5;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.section-heading h2 {
+    color: #58445f;
+    font-size: 34px;
+    margin: 12px 0;
+}
+
+.section-heading p {
+    color: #8d8191;
+    font-size: 14px;
+}
+
+.popular-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.popular-card {
+    background: white;
+    width: 290px;
+    padding: 20px;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 7px 25px rgba(180,130,180,0.10);
+    transition: 0.3s;
+    overflow: hidden;
+}
+
+.popular-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(180,130,180,0.2);
+}
+
+.popular-card img {
+    width: 100%;
+    height: 185px;
+    object-fit: contain;
+    background: #fff8fd;
+    border-radius: 18px;
+    padding: 12px;
+}
+
+.popular-card h3 {
+    color: #a866a1;
+    margin: 17px 0 8px;
+    font-size: 18px;
+}
+
+.popular-card p {
+    color: #89808e;
+    font-size: 12px;
+    margin-bottom: 17px;
+}
+
+.popular-card a {
+    display: inline-block;
+    color: #c36eaa;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.popular-card a:hover {
+    color: #8e62b5;
+}
+
+
+/* =================================
+   CALL TO ACTION
+================================= */
+
+.cta {
+    margin: 60px 8%;
+    padding: 60px 25px;
+    text-align: center;
+    border-radius: 30px;
+    background: linear-gradient(135deg,#f5d8ee,#e7ddff);
+}
+
+.cta h2 {
+    color: #654c70;
+    font-size: 29px;
+    margin-bottom: 15px;
+}
+
+.cta p {
+    color: #88738f;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+
+/* =================================
+   ABOUT SECTION
+================================= */
+
+.about {
+    padding: 75px 10%;
+    text-align: center;
+    background: white;
+}
+
+.about > span {
+    color: #c779b0;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.about h2 {
+    color: #624c6d;
+    font-size: 32px;
+    margin: 15px 0 20px;
+}
+
+.about p {
+    max-width: 780px;
+    margin: auto;
+    color: #817989;
+    font-size: 14px;
+    line-height: 2;
+}
+
+
+/* =================================
+   FOOTER
+================================= */
+
+.footer {
+    background: linear-gradient(135deg,#a77db5,#d58bb8);
+    color: white;
+    text-align: center;
+    padding: 45px 20px 25px;
+}
+
+.footer h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.footer > p {
+    font-size: 13px;
+}
+
+.footer-links {
+    margin: 25px 0;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    color: white;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.footer-links a:hover {
+    color: #ffe6f7;
+}
+
+.copyright {
+    border-top: 1px solid rgba(255,255,255,0.3);
+    padding-top: 20px;
+    line-height: 2;
+    font-size: 12px;
+}
+
+
+/* =================================
+   ANIMATIONS
+================================= */
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =================================
+   RESPONSIVE DESIGN
+================================= */
+
+@media (max-width: 900px) {
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-visual {
+        margin-top: 20px;
+    }
+
+    .hero h1 {
+        font-size: 39px;
+    }
+}
+
+@media (max-width: 650px) {
+
+    .navbar {
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .nav-links {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav-button {
+        display: none;
+    }
+
+    .hero {
+        padding: 55px 6%;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero-image-card {
+        width: 270px;
+        height: 300px;
+    }
+
+    .big-gift {
+        font-size: 90px;
+    }
+
+    .section-heading h2 {
+        font-size: 27px;
+    }
+
+    .cta h2 {
+        font-size: 23px;
+    }
+
+    .popular-card {
+        width: 100%;
+        max-width: 330px;
+    }
+
+}
+/* ===== ATTRACTIVE FIND GIFT PAGE ===== */
+
+body {
+    background: linear-gradient(135deg, #f0fff4, #f5eaff, #fff0f3);
+    font-family: Arial, sans-serif;
+    color: #38304b;
+    font-size: 18px;
+}
+
+/* Header and Navigation */
+header, nav {
+    background: linear-gradient(90deg, #b9efc5, #d9c3ff, #ffd6df);
+}
+
+nav {
+    padding: 18px 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+nav h2 {
+    color: #652b91;
+    font-size: 30px;
+}
+
+nav a {
+    color: #632c91;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 12px;
+}
+
+nav a:hover {
+    color: #e33358;
+}
+
+/* Main Heading */
+h1 {
+    color: #642b91;
+    font-size: 38px !important;
+    text-align: center;
+    margin: 25px 0 12px;
+}
+
+h1 span {
+    color: #e33b62;
+}
+
+h2 {
+    color: #682d98;
+}
+
+/* Description */
+p {
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+/* Gift Form Card */
+form {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 35px;
+    background: white;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(103, 55, 145, 0.15);
+    border-top: 7px solid #9b65cf;
+}
+
+/* Form Labels */
+label {
+    display: inline-block;
+    color: #563078;
+    font-size: 18px !important;
+    font-weight: bold;
+    margin: 12px 8px;
+}
+
+/* Input Fields */
+input, select {
+    padding: 12px 14px !important;
+    border: 2px solid #dfc9f5;
+    border-radius: 10px;
+    background: #fffaff;
+    font-size: 16px !important;
+    margin: 7px;
+    outline: none;
+}
+

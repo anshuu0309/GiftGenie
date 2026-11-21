@@ -1,0 +1,222 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gift Recommendations | Gift Genie</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <style>
+        .results {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .gift-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 40px auto;
+        }
+
+        .gift-card {
+            background: white;
+            padding: 20px;
+            border-radius: 18px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.10);
+            transition: 0.3s;
+        }
+
+        .gift-card:hover {
+            transform: translateY(-7px);
+        }
+
+        .gift-image {
+            width: 100%;
+            height: 190px;
+            object-fit: contain;
+            border-radius: 12px;
+        }
+
+        .gift-card h2 {
+            margin: 15px 0;
+        }
+
+        .amazon-button {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 11px 20px;
+            background: #ff9900;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+        }
+
+        .amazon-button:hover {
+            background: #e68a00;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin: 25px;
+            padding: 12px 25px;
+            background: #a78bfa;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+        }
+
+        .gift-icon {
+            font-size: 80px;
+            padding: 35px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <h2>🎁 Gift Genie</h2>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/finder">Find a Gift</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="results">
+
+    <h1>Your Perfect Gifts Are Here! 💝</h1>
+
+    <p>Our ML model found these gifts for you.</p>
+
+    {% set image_map = {
+        "Teddy Bear": "teddy_bear.jpg",
+        "Smart Watch": "smart_watch.jpg",
+        "Novel": "novel.jpg",
+        "Perfume": "perfume.jpg",
+        "Handbag": "handbag.jpg",
+        "Wallet": "wallet.jpg",
+        "Headphones": "headphones.jpg",
+        "Art Kit": "art_kit.jpg",
+        "Cricket Bat": "cricket_bat.jpg",
+        "Skincare Kit": "skincare_kit.jpg",
+        "Music Speaker": "music_speaker.jpg",
+        "Travel Bag": "travel_bag.jpg",
+        "Birthday Cake": "birthday_cake.jpg",
+        "Bluetooth Earbuds": "bluetooth_earbuds.jpg",
+        "Laptop Stand": "laptop_stand.jpg",
+        "Sunglasses": "sunglasses.jpg",
+        "Makeup Kit": "makeup_kit.jpg",
+        "Watch": "watch.jpg",
+        "Photo Frame": "photo_frame.jpg",
+        "Coffee Mug": "coffee_mug.jpg",
+        "Football": "football.jpg",
+        "Yoga Mat": "yoga_mat.jpg",
+        "Sketchbook": "sketchbook.jpg",
+        "Kindle": "kindle.jpg",
+        "Necklace": "necklace.jpg",
+        "Perfume Set": "perfume_set.jpg",
+        "Travel Pillow": "travel_pillow.jpg",
+        "Table Lamp": "table_lamp.jpg",
+        "Plant Pot": "plant_pot.jpg",
+        "Wireless Mouse": "wireless_mouse.jpg",
+        "Diary": "diary.jpg",
+        "Gym Bag": "gym_bag.jpg"
+    } %}
+
+    {% if recommendations %}
+
+    <div class="gift-container">
+
+        {% for gift in recommendations %}
+
+        {% set gift_name = gift.gift_name|trim %}
+        {% set image_name = image_map.get(gift_name, '') %}
+
+        <div class="gift-card">
+
+            {% if image_name %}
+
+            <img
+                src="{{ url_for('static', filename='images/' + image_name) }}"
+                alt="{{ gift_name }}"
+                class="gift-image"
+                {% if gift_name == "Laptop Stand" %}
+                data-fallback="{{ url_for('static', filename='images/laptop_stand..jpg') }}"
+                {% endif %}
+                onerror="
+                    if (this.dataset.fallback && !this.dataset.tried) {
+                        this.dataset.tried = 'yes';
+                        this.src = this.dataset.fallback;
+                    } else {
+                        this.style.display = 'none';
+                        this.nextElementSibling.style.display = 'block';
+                    }
+                "
+            >
+
+            <div class="gift-icon" style="display:none;">🎁</div>
+
+            {% else %}
+
+            <div class="gift-icon">🎁</div>
+
+            {% endif %}
+
+            <h2>{{ gift_name }}</h2>
+
+            <p>
+                <strong>Price:</strong>
+                ₹{{ gift.budget }}
+            </p>
+
+            <p>
+                <strong>Match Score:</strong>
+                {{ "%.2f"|format(gift.score) }}
+            </p>
+
+            <a
+                href="https://www.amazon.in/s?k={{ gift_name|urlencode }}"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="amazon-button"
+            >
+                Buy on Amazon 🛒
+            </a>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+    {% else %}
+
+    <h2>Sorry! No gifts found. 😔</h2>
+    <p>Try changing your preferences.</p>
+
+    {% endif %}
+
+    <a href="/finder" class="back-button">
+        Find Another Gift 🎁
+    </a>
+
+</section>
+
+<footer>
+    <p>Made with ❤️ by Anshu & Rashi</p>
+    <p>Gift Genie © 2026</p>
+</footer>
+
+</body>
+</html>
+```

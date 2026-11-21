@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gift Genie</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f5fff7;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(90deg, #b9f2c5, #d9c4ff);
+            padding: 18px 8%;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        nav h2 {
+            color: #542080;
+            font-size: 28px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        nav a {
+            color: #542080;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #df2945;
+        }
+
+        /* Main Hero Section */
+
+        .home {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            padding: 85px 10%;
+            background: linear-gradient(
+                120deg,
+                #e0ffe7,
+                #eee3ff,
+                #ffe5e8
+            );
+        }
+
+        .home-content {
+            max-width: 560px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #ffffff;
+            color: #26934c;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            margin-bottom: 22px;
+        }
+
+        .home h1 {
+            font-size: 48px;
+            color: #59258a;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .home h1 span {
+            color: #e32d49;
+        }
+
+        .home p {
+            color: #555;
+            font-size: 17px;
+            line-height: 1.8;
+            margin-bottom: 12px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(90deg, #e52f4e, #a33ac0);
+            color: white;
+            padding: 15px 32px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 18px;
+            box-shadow: 0 6px 15px #d9a9c7;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Gift Illustration */
+
+        .gift-box {
+            width: 330px;
+            min-height: 300px;
+            background: linear-gradient(
+                135deg,
+                #ffffff,
+                #d9ffe2,
+                #eadbff
+            );
+            border: 3px solid white;
+            border-radius: 35px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 12px 28px #cbb5dc;
+            text-align: center;
+        }
+
+        .gift-icon {
+            font-size: 125px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .gift-box h3 {
+            color: #6c329a;
+            font-size: 23px;
+            margin-top: 12px;
+        }
+
+        .gift-box p {
+            color: #26934c;
+            margin-top: 8px;
+            font-weight: bold;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-12px);
+            }
+        }
+
+        /* About */
+
+        .about {
+            padding: 65px 10%;
+            text-align: center;
+            background: white;
+        }
+
+        .section-title {
+            color: #652c99;
+            font-size: 33px;
+            margin-bottom: 25px;
+        }
+
+        .about-card {
+            max-width: 850px;
+            margin: auto;
+            padding: 32px;
+            border-radius: 22px;
+            background: linear-gradient(
+                120deg,
+                #e4ffea,
+                #eee4ff,
+                #ffe7eb
+            );
+            border-left: 7px solid #2da65a;
+        }
+
+        .about-card p {
+            font-size: 17px;
+            line-height: 1.9;
+            color: #555;
+        }
+
+        /* Team */
+
+        .team {
+            padding: 65px 10%;
+            text-align: center;
+            background: linear-gradient(
+                120deg,
+                #e4ffe9,
+                #eee5ff,
+                #ffe7eb
+            );
+        }
+
+        .team-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 35px;
+        }
+
+        .team-card {
+            width: 260px;
+            padding: 32px;
+            background: white;
+            border-radius: 22px;
+            box-shadow: 0 8px 22px #d5c8e4;
+            transition: 0.3s;
+        }
+
+        .team-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .team-card:first-child {
+            border-top: 7px solid #27a653;
+        }
+
+        .team-card:last-child {
+            border-top: 7px solid #e33d50;
+        }
+
+        .team-icon {
+            font-size: 65px;
+            margin-bottom: 15px;
+        }
+
+        .team-card h3 {
+            color: #682c9b;
+            font-size: 26px;
+            margin-bottom: 15px;
+        }
+
+        .roll {
+            display: inline-block;
+            background: #eee3ff;
+            color: #692b9c;
+            padding: 10px 18px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+        /* Technology */
+
+        .technology {
+            padding: 55px 10%;
+            background: white;
+            text-align: center;
+        }
+
+        .tech-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 18px;
+            margin-top: 25px;
+        }
+
+        .tech {
+            padding: 16px 28px;
+            border-radius: 15px;
+            font-weight: bold;
+        }
+
+        .tech:nth-child(1) {
+            background: #d9ffe2;
+            color: #187d39;
+        }
+
+        .tech:nth-child(2) {
+            background: #eee0ff;
+            color: #7135a5;
+        }
+
+        .tech:nth-child(3) {
+            background: #ffe1e5;
+            color: #c52c43;
+        }
+
+        /* Footer */
+
+        footer {
+            background: linear-gradient(
+                90deg,
+                #248b49,
+                #68349c,
+                #d72e48
+            );
+            color: white;
+            text-align: center;
+            padding: 25px;
+            line-height: 1.9;
+        }
+
+        @media(max-width: 750px) {
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 16px;
+            }
+
+            .home {
+                flex-direction: column;
+                text-align: center;
+                padding: 50px 7%;
+            }
+
+            .home h1 {
+                font-size: 36px;
+            }
+
+            .gift-box {
+                width: 100%;
+                max-width: 330px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <h2>🎁 Gift Genie</h2>
+
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/finder">Find a Gift</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="home">
+
+    <div class="home-content">
+
+        <div class="tag">✨ Welcome to Gift Genie</div>
+
+        <h1>
+            Find the <span>Perfect Gift!</span> 🎁
+        </h1>
+
+        <p>
+            Looking for a special gift for someone you love?
+            Gift Genie helps you discover wonderful gift ideas
+            according to age, relationship, occasion and budget.
+        </p>
+
+        <p>
+            Make every celebration special with the perfect gift!
+        </p>
+
+        <a href="/finder" class="btn">Find a Gift 🎀</a>
+
+    </div>
+
+    <div class="gift-box">
+        <div class="gift-icon">🎁</div>
+        <h3>Gift Genie</h3>
+        <p>Find a Gift, Share a Smile!</p>
+    </div>
+
+</section>
+
+<section class="about" id="about">
+
+    <h2 class="section-title">💝 About Gift Genie</h2>
+
+    <div class="about-card">
+        <p>
+            Gift Genie is a Python-based gift recommendation website.
+            It uses Machine Learning to suggest suitable gifts based
+            on user preferences, relationship, age, occasion and budget.
+            Our aim is to make gift selection simple, quick and enjoyable.
+        </p>
+    </div>
+
+</section>
+
+<section class="team">
+
+    <h2 class="section-title">🌸 Meet Our Team</h2>
+
+    <p>Made with creativity and teamwork!</p>
+
+    <div class="team-container">
+
+        <div class="team-card">
+            <div class="team-icon">👩🏻‍🎓</div>
+            <h3>Anshu</h3>
+            <span class="roll">Roll No. 056</span>
+        </div>
+
+        <div class="team-card">
+            <div class="team-icon">👩🏻‍🎓</div>
+            <h3>Rashi</h3>
+            <span class="roll">Roll No. 124</span>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="technology">
+
+    <h2 class="section-title">💻 Technologies Used</h2>
+
+    <div class="tech-container">
+        <div class="tech">🐍 Python</div>
+        <div class="tech">🌐 Flask</div>
+        <div class="tech">🤖 Machine Learning</div>
+    </div>
+
+</section>
+
+<footer>
+    <p>🎁 Gift Genie – Find a Gift, Share a Smile!</p>
+    <p>Anshu (Roll No. 056) & Rashi (Roll No. 124)</p>
+    <p>Made with ❤️</p>
+</footer>
+
+</body>
+</html>
+
